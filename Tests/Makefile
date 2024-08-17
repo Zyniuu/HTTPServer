@@ -7,9 +7,9 @@ all: DataStructures TestsSub
 	@echo "Linking and compiling everything"
 	$(CC) $(wildcard $(OBJPATH)/*.o) -o $(OUTPATH)/tests $(CFLAGS)
 
-DataStructures: Node LinkedList Queue
+DataStructures: Node LinkedList Queue BST
 
-TestsSub: UnitTests TestNode TestLinkedList TestQueue DataStructuresTests Tests
+TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST DataStructuresTests Tests
 
 Tests:
 	@echo "Compiling the Tests.c file"
@@ -31,6 +31,10 @@ TestQueue:
 	@echo "Compiling the TestQueue.c file"
 	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
+TestBST:
+	@echo "Compiling the TestBST.c file"
+	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
 DataStructuresTests:
 	@echo "Compiling the DataStructuresTests.c file"
 	$(CC) -c ../Tests/DataStructures/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
@@ -46,6 +50,10 @@ LinkedList:
 Queue:
 	@echo "Compiling the Queue.c file"
 	$(CC) -c ../HTTPServer/src/DataStructures/Linear/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+BST:
+	@echo "Compiling the BST.c file"
+	$(CC) -c ../HTTPServer/src/DataStructures/NonLinear/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 clean:
 	@echo "Cleaning object files"

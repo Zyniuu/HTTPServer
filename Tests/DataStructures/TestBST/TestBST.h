@@ -15,16 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * DataStructuresTests.c
+ * TestBST.h
  */
 
-#include "DataStructuresTests.h"
+#ifndef TESTBST_H
+#define TESTBST_H
 
-void test_data_structures()
-{
-    TEST_REGISTER("DATA STRUCTURES TESTS");
-    test_node();
-    test_linked_list();
-    test_queue();
-    test_bst();
-}
+#include "../../Common/UnitTests.h"
+#include "../../../HTTPServer/src/DataStructures/NonLinear/BST/BST.h"
+
+void test_bst();
+
+#endif // TESTBST_H
