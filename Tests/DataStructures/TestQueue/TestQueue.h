@@ -15,16 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * DataStructuresTests.h
+ * TestQueue.h
  */
 
-#ifndef TESTDATASTRUCTURES_H
-#define TESTDATASTRUCTURES_H
+#ifndef TESTQUEUE_H
+#define TESTQUEUE_H
 
-#include "TestNode/TestNode.h"
-#include "TestLinkedList/TestLinkedList.h"
-#include "TestQueue/TestQueue.h"
+#include "../../Common/UnitTests.h"
+#include "../../../HTTPServer/src/DataStructures/Linear/Queue/Queue.h"
 
-void test_data_structures();
+void test_queue();
 
-#endif // TESTDATASTRUCTURES_H
+#endif // TESTQUEUE_H

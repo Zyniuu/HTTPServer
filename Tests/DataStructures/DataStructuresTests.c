@@ -25,4 +25,5 @@ void test_data_structures()
     TEST_REGISTER("DATA STRUCTURES TESTS");
     test_node();
     test_linked_list();
+    test_queue();
 }
