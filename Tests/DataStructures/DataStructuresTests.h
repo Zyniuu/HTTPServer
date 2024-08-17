@@ -25,6 +25,7 @@
 #include "TestLinkedList/TestLinkedList.h"
 #include "TestQueue/TestQueue.h"
 #include "TestBST/TestBST.h"
+#include "TestDictionary/TestDictionary.h"
 
 void test_data_structures();
 

@@ -15,17 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * DataStructuresTests.c
+ * TestDictionary.h
  */
 
-#include "DataStructuresTests.h"
+#ifndef TESTDICTIONARY_H
+#define TESTDICTIONARY_H
 
-void test_data_structures()
-{
-    TEST_REGISTER("DATA STRUCTURES TESTS");
-    test_node();
-    test_linked_list();
-    test_queue();
-    test_bst();
-    test_dictionary();
-}
+#include "../../Common/UnitTests.h"
+#include "../../../HTTPServer/src/DataStructures/NonLinear/Dictionary/Dictionary.h"
+
+void test_dictionary();
+
+#endif // TESTDICTIONARY_H

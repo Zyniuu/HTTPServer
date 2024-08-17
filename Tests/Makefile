@@ -7,9 +7,9 @@ all: DataStructures TestsSub
 	@echo "Linking and compiling everything"
 	$(CC) $(wildcard $(OBJPATH)/*.o) -o $(OUTPATH)/tests $(CFLAGS)
 
-DataStructures: Node LinkedList Queue BST
+DataStructures: Node LinkedList Queue BST Entry Dictionary
 
-TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST DataStructuresTests Tests
+TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests Tests
 
 Tests:
 	@echo "Compiling the Tests.c file"
@@ -35,6 +35,10 @@ TestBST:
 	@echo "Compiling the TestBST.c file"
 	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
+TestDictionary:
+	@echo "Compiling the TestDictionary.c file"
+	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
 DataStructuresTests:
 	@echo "Compiling the DataStructuresTests.c file"
 	$(CC) -c ../Tests/DataStructures/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
@@ -53,6 +57,14 @@ Queue:
 
 BST:
 	@echo "Compiling the BST.c file"
+	$(CC) -c ../HTTPServer/src/DataStructures/NonLinear/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+Entry:
+	@echo "Compiling Entry.c file"
+	$(CC) -c ../HTTPServer/src/DataStructures/NonLinear/Dictionary/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+Dictionary:
+	@echo "Compiling the Dictionary.c file"
 	$(CC) -c ../HTTPServer/src/DataStructures/NonLinear/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 clean:
