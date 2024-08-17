@@ -36,8 +36,8 @@ void test_node_init()
     // testing float data allocation
     float float_data = 3.14;
     struct Node *float_node = (struct Node *)malloc(sizeof(struct Node));
-    *float_node = node_init(&float_data, sizeof(int));
-    ASSERT_TRUE(float_node->data, &float_data, sizeof(int), "Testing if float data is correctly allocated");
+    *float_node = node_init(&float_data, sizeof(float));
+    ASSERT_TRUE(float_node->data, &float_data, sizeof(float), "Testing if float data is correctly allocated");
     node_free(float_node);
 }
 
