@@ -15,15 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * DataStructuresTests.h
+ * TestLinkedList.h
  */
 
-#ifndef TESTDATASTRUCTURES_H
-#define TESTDATASTRUCTURES_H
+#ifndef TESTLINKEDLIST_H
+#define TESTLINKEDLIST_H
 
-#include "TestNode/TestNode.h"
-#include "TestLinkedList/TestLinkedList.h"
+#include "../../Common/UnitTests.h"
+#include "../../../HTTPServer/src/DataStructures/Linear/LinkedList/LinkedList.h"
 
-void test_data_structures();
+void test_linked_list();
 
-#endif // TESTDATASTRUCTURES_H
+#endif // TESTLINKEDLIST_H
