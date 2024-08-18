@@ -3,13 +3,15 @@ CFLAGS := -Wall -O2
 OUTPATH = ../build/tests
 OBJPATH = ../obj
 
-all: Helpers DataStructures TestsSub
+all: Helpers DataStructures HTTP TestsSub
 	@echo "Linking and compiling everything"
 	$(CC) $(wildcard $(OBJPATH)/*.o) -o $(OUTPATH)/tests $(CFLAGS)
 
 DataStructures: Node LinkedList Queue BST Entry Dictionary
 
-TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests TestMultiTok HelpersTests Tests
+HTTP: Request
+
+TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests TestMultiTok TestRequest HelpersTests HTTPTests Tests
 
 .PHONY: Helpers
 Helpers:
@@ -44,6 +46,10 @@ TestMultiTok:
 	@echo "Compiling the TestMultiTok.c file"
 	$(CC) -c ../Tests/Helpers/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
+TestRequest:
+	@echo "Compiling the TestRequest.c file"
+	$(CC) -c ../Tests/HTTP/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
 TestDictionary:
 	@echo "Compiling the TestDictionary.c file"
 	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
@@ -55,6 +61,10 @@ DataStructuresTests:
 HelpersTests:
 	@echo "Compiling the HelpersTests.c file"
 	$(CC) -c ../Tests/Helpers/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+HTTPTests:
+	@echo "Compiling the HTTPTests.c file"
+	$(CC) -c ../Tests/HTTP/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 Node:
 	@echo "Compiling the Node.c file"
@@ -79,6 +89,10 @@ Entry:
 Dictionary:
 	@echo "Compiling the Dictionary.c file"
 	$(CC) -c ../HTTPServer/src/DataStructures/NonLinear/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+Request:
+	@echo "Compiling the Request.c file"
+	$(CC) -c ../HTTPServer/src/HTTP/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 clean:
 	@echo "Cleaning object files"

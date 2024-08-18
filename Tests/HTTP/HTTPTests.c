@@ -15,24 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * Tests.c
+ * HTTPTests.c
  */
 
-#include "Helpers/HelpersTests.h"
-#include "DataStructures/DataStructuresTests.h"
-#include "HTTP/HTTPTests.h"
+#include "HTTPTests.h"
 
-#include <stdio.h>
-
-int main()
+void test_http()
 {
-    test_helper_functions();
-    test_data_structures();
-    test_http();
-
-    printf("\nTotal tests: %d\n", tests_passed + tests_failed);
-    printf("Tests passed: %d\n", tests_passed);
-    printf("Tests failed: %d\n", tests_failed);
-
-    return 0;
+    TEST_REGISTER("HTTP SERVER FUNCTIONS TESTS");
+    test_request();
 }

@@ -23,6 +23,8 @@
 
 #include "../../DataStructures/NonLinear/Dictionary/Dictionary.h"
 
+// Structure representing an HTTP request, with separate dictionaries 
+// for the request line, header fields, and message body
 struct Request
 {
     struct Dictionary request_line;
@@ -30,7 +32,20 @@ struct Request
     struct Dictionary message_body;
 };
 
+/**
+ * Function to initialize a Request structure by parsing an HTTP request message
+ * 
+ * @param request_message A string containing the full HTTP request message
+ * 
+ * @return A Request structure with the parsed request line, headers, and body
+ */
 struct Request request_init(char *request_message);
+
+/**
+ * Function to free all resources associated with a Request structure
+ * 
+ * @param request Pointer to the Request structure to be freed
+ */
 void request_free(struct Request *request);
 
 #endif // REQUEST_H
