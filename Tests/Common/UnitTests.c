@@ -115,7 +115,7 @@ void ASSERT_PTR_FALSE(void *ptr1, void *ptr2, char *title)
 
 void TEST_REGISTER(char *title)
 {
-    printf("%s\n", title);
+    printf("\n%s\n", title);
 }
 
 void TEST_SUITE(char *title)

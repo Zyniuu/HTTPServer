@@ -3,13 +3,18 @@ CFLAGS := -Wall -O2
 OUTPATH = ../build/tests
 OBJPATH = ../obj
 
-all: DataStructures TestsSub
+all: Helpers DataStructures TestsSub
 	@echo "Linking and compiling everything"
 	$(CC) $(wildcard $(OBJPATH)/*.o) -o $(OUTPATH)/tests $(CFLAGS)
 
 DataStructures: Node LinkedList Queue BST Entry Dictionary
 
-TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests Tests
+TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests TestMultiTok HelpersTests Tests
+
+.PHONY: Helpers
+Helpers:
+	@echo "Compiling the Helpers.c file"
+	$(CC) -c ../HTTPServer/src/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 Tests:
 	@echo "Compiling the Tests.c file"
@@ -35,6 +40,10 @@ TestBST:
 	@echo "Compiling the TestBST.c file"
 	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
+TestMultiTok:
+	@echo "Compiling the TestMultiTok.c file"
+	$(CC) -c ../Tests/Helpers/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
 TestDictionary:
 	@echo "Compiling the TestDictionary.c file"
 	$(CC) -c ../Tests/DataStructures/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
@@ -42,6 +51,10 @@ TestDictionary:
 DataStructuresTests:
 	@echo "Compiling the DataStructuresTests.c file"
 	$(CC) -c ../Tests/DataStructures/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+HelpersTests:
+	@echo "Compiling the HelpersTests.c file"
+	$(CC) -c ../Tests/Helpers/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 Node:
 	@echo "Compiling the Node.c file"

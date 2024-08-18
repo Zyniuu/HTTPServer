@@ -18,12 +18,14 @@
  * Tests.c
  */
 
+#include "Helpers/HelpersTests.h"
 #include "DataStructures/DataStructuresTests.h"
 
 #include <stdio.h>
 
 int main()
 {
+    test_helper_functions();
     test_data_structures();
 
     printf("\nTotal tests: %d\n", tests_passed + tests_failed);
