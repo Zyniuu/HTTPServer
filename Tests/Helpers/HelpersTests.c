@@ -24,4 +24,5 @@ void test_helper_functions()
 {
     TEST_REGISTER("HELPER FUNCTIONS TESTS");
     test_multi_tok();
+    test_remove_spaces();
 }

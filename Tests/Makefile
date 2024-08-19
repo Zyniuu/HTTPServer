@@ -9,9 +9,9 @@ all: Helpers DataStructures HTTP TestsSub
 
 DataStructures: Node LinkedList Queue BST Entry Dictionary
 
-HTTP: Request
+HTTP: Request Config
 
-TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests TestMultiTok TestRequest HelpersTests HTTPTests Tests
+TestsSub: UnitTests TestNode TestLinkedList TestQueue TestBST TestDictionary DataStructuresTests TestMultiTok TestRemoveSpaces TestRequest TestConfig HelpersTests HTTPTests Tests
 
 .PHONY: Helpers
 Helpers:
@@ -46,8 +46,16 @@ TestMultiTok:
 	@echo "Compiling the TestMultiTok.c file"
 	$(CC) -c ../Tests/Helpers/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
+TestRemoveSpaces:
+	@echo "Compiling the TestRemoveSpaces.c file"
+	$(CC) -c ../Tests/Helpers/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
 TestRequest:
 	@echo "Compiling the TestRequest.c file"
+	$(CC) -c ../Tests/HTTP/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+TestConfig:
+	@echo "Compiling the TestConfig.c file"
 	$(CC) -c ../Tests/HTTP/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 TestDictionary:
@@ -92,6 +100,10 @@ Dictionary:
 
 Request:
 	@echo "Compiling the Request.c file"
+	$(CC) -c ../HTTPServer/src/HTTP/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
+
+Config:
+	@echo "Compiling the Config.c file"
 	$(CC) -c ../HTTPServer/src/HTTP/$@/$@.c -o $(OBJPATH)/$@.o $(CFLAGS)
 
 clean:

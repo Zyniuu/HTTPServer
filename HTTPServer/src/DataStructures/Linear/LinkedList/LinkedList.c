@@ -21,6 +21,7 @@
 #include "LinkedList.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * Helper function to create a new node with given data
@@ -73,6 +74,11 @@ void linked_list_free(struct LinkedList *linked_list)
 struct Node *create_node_ll(void *data, unsigned long size)
 {
     struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+    if (!new_node)
+    {
+        printf("Error: Failed to allocate memory for new_node.\n");
+        exit(1);
+    }
     *new_node = node_init(data, size);
     return new_node;
 }

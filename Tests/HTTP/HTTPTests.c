@@ -24,4 +24,5 @@ void test_http()
 {
     TEST_REGISTER("HTTP SERVER FUNCTIONS TESTS");
     test_request();
+    test_config();
 }

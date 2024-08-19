@@ -56,7 +56,7 @@ struct Request request_init(char *request_message)
 {
     struct Request request;
     // Create a copy of the request message to avoid modifying the original string
-    char request_message_copy[strlen(request_message)];
+    char request_message_copy[strlen(request_message) + 1];
     strcpy(request_message_copy, request_message);
     char *save_ptr = NULL;
 
@@ -83,7 +83,7 @@ void request_free(struct Request *request)
 struct Dictionary extract_request_line(char *request_line)
 {
     struct Dictionary dict = dictionary_init(compare_string_entries);
-    char request_line_copy[strlen(request_line)];
+    char request_line_copy[strlen(request_line) + 1];
     strcpy(request_line_copy, request_line);
     char *save_ptr = NULL;
 
@@ -106,7 +106,7 @@ struct Dictionary extract_request_line(char *request_line)
 struct Dictionary extract_header_fields(char *header_fields)
 {
     struct Dictionary dict = dictionary_init(compare_string_entries);
-    char header_fields_copy[strlen(header_fields)];
+    char header_fields_copy[strlen(header_fields) + 1];
     strcpy(header_fields_copy, header_fields);
     char *save_ptr = NULL;
 

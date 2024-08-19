@@ -21,12 +21,18 @@
 #include "TestNode.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void test_node_init()
 {
     // testing int data allocation and if next node is NULL
     int int_data = 42;
     struct Node *int_node = (struct Node *)malloc(sizeof(struct Node));
+    if (!int_node)
+    {
+        printf("Error: Failed to allocate memory for int_node.\n");
+        exit(1);
+    }
     *int_node = node_init(&int_data, sizeof(int));
     ASSERT_TRUE(int_node->data, &int_data, sizeof(int), "Testing if int data is correctly allocated");
     ASSERT_PTR_TRUE(int_node->next, NULL, "Testing if next node is NULL");
@@ -36,6 +42,11 @@ void test_node_init()
     // testing float data allocation
     float float_data = 3.14;
     struct Node *float_node = (struct Node *)malloc(sizeof(struct Node));
+    if (!float_node)
+    {
+        printf("Error: Failed to allocate memory for float_node.\n");
+        exit(1);
+    }
     *float_node = node_init(&float_data, sizeof(float));
     ASSERT_TRUE(float_node->data, &float_data, sizeof(float), "Testing if float data is correctly allocated");
     node_free(float_node);

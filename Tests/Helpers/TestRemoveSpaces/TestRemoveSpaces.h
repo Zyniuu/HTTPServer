@@ -15,15 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * HTTPTests.h
+ * TestRemoveSpaces.h
  */
 
-#ifndef HTTPTESTS_H
-#define HTTPTESTS_H
+#ifndef TESTREMOVESPACES_H
+#define TESTREMOVESPACES_H
 
-#include "TestRequest/TestRequest.h"
-#include "TestConfig/TestConfig.h"
+#include "../../Common/UnitTests.h"
+#include "../../../HTTPServer/src/Helpers/Helpers.h"
 
-void test_http();
+void test_remove_spaces();
 
-#endif // HTTPTESTS_H
+#endif // TESTREMOVESPACES_H

@@ -48,3 +48,24 @@ char *str_multi_tok(char *input, char **save_ptr, char *delimiter)
     // Return the current token
     return temp;
 }
+
+void remove_spaces(char *input, int i, int j)
+{
+    // Base case: if the end of the string is reached, stop recursion
+    if (input[i] == '\0')
+    {
+        input[j] = '\0';
+        return;
+    }
+    // If the current character is a space, skip it
+    if (input[i] == ' ')
+    {
+        remove_spaces(input, i + 1, j);
+    }
+    else
+    {
+        // Otherwise, copy the current character to the next position
+        input[j] = input[i];
+        remove_spaces(input, i + 1, j + 1);
+    }
+}

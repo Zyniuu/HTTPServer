@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 void test_entry_init()
 {
@@ -30,6 +31,11 @@ void test_entry_init()
     int int_value = 100;
 
     struct Entry *int_entry = (struct Entry *)malloc(sizeof(struct Entry));
+    if (!int_entry)
+    {
+        printf("Error: Failed to allocate memory for int_entry.\n");
+        exit(1);
+    }
     *int_entry = entry_init(&int_key, sizeof(int), &int_value, sizeof(int));
 
     ASSERT_TRUE(int_entry->key, &int_key, sizeof(int), "Testing if key is set to 42");
@@ -42,6 +48,11 @@ void test_entry_init()
     char *str_value = "test_value";
 
     struct Entry *str_entry = (struct Entry *)malloc(sizeof(struct Entry));
+    if (!str_entry)
+    {
+        printf("Error: Failed to allocate memory for str_entry.\n");
+        exit(1);
+    }
     *str_entry = entry_init(str_key, strlen(str_key) + 1, str_value, strlen(str_value) + 1);
 
     ASSERT_TRUE(str_entry->key, str_key, strlen(str_key) + 1, "Testing if key is set to 'test_key'");

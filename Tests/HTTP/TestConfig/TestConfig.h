@@ -15,15 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * HTTPTests.h
+ * TestConfig.h
  */
 
-#ifndef HTTPTESTS_H
-#define HTTPTESTS_H
+#ifndef TESTCONFIG_H
+#define TESTCONFIG_H
 
-#include "TestRequest/TestRequest.h"
-#include "TestConfig/TestConfig.h"
+#include "../../Common/UnitTests.h"
+#include "../../../HTTPServer/src/HTTP/Config/Config.h"
 
-void test_http();
+void test_config();
 
-#endif // HTTPTESTS_H
+#endif // TESTCONFIG_H

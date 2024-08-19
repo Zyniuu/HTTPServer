@@ -33,4 +33,13 @@
  */
 char *str_multi_tok(char *input, char **save_ptr, char *delimiter);
 
+/**
+ * Recursive function to remove all spaces from a string
+ * 
+ * @param input The string from which spaces should be removed
+ * @param i The current index being evaluated in the string
+ * @param j The current index where the next non-space character should be placed
+ */
+void remove_spaces(char *input, int i, int j);
+
 #endif // HELPERS_H

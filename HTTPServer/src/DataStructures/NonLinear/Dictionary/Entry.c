@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 struct Entry entry_init(void *key, unsigned long key_size, void *value, unsigned long value_size)
 {
@@ -29,7 +30,17 @@ struct Entry entry_init(void *key, unsigned long key_size, void *value, unsigned
 
     // Allocate memory for the key and value
     entry.key = malloc(key_size);
+    if (!entry.key)
+    {
+        printf("Error: Failed to allocate memory for entry.key.\n");
+        exit(1);
+    }
     entry.value = malloc(value_size);
+    if (!entry.value)
+    {
+        printf("Error: Failed to allocate memory for entry.value.\n");
+        exit(1);
+    }
 
     // Copy the key and value data into the allocated memory
     memcpy(entry.key, key, key_size);

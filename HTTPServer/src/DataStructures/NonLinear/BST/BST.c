@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 /**
  * Helper function to recursively free nodes in the BST
@@ -129,6 +130,11 @@ int bst_float_compare(void *data1, void *data2)
 struct Node *create_node_bst(void *data, unsigned long size)
 {
     struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+    if (!new_node)
+    {
+        printf("Error: Failed to allocate memory for new_node.\n");
+        exit(1);
+    }
     *new_node = node_init(data, size);
     return new_node;
 }

@@ -22,12 +22,18 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 struct Node node_init(void *data, unsigned long size)
 {
     struct Node node;
     // Allocate memory for the data in the node
     node.data = malloc(size);
+    if (!node.data)
+    {
+        printf("Error: Failed to allocate memory for node.data.\n");
+        exit(1);
+    }
     // Copy the data into the allocated memory
     memcpy(node.data, data, size);
     // Initialize the next pointer to NULL (no next node yet)

@@ -22,6 +22,7 @@
 #define HELPERSTESTS_H
 
 #include "TestMultiTok/TestMultiTok.h"
+#include "TestRemoveSpaces/TestRemoveSpaces.h"
 
 void test_helper_functions();
 
