@@ -25,17 +25,19 @@
 
 void test_request_init()
 {
-    char *request_message = "GET /index.html HTTP/1.1\r\nHost: www.example.com\r\nConnection: keep-alive\r\n\r\nbody-data";
+    char *request_message = "GET /index.php?name=string&email=string HTTP/1.1\r\nHost: www.example.com\r\nConnection: keep-alive\r\n\r\nbody-data";
     struct Request request = request_init(request_message);
 
     // Check request line
     char *method = (char *)request.request_line.search(&request.request_line, "Method", strlen("Method") + 1);
     char *uri = (char *)request.request_line.search(&request.request_line, "Uri", strlen("Uri") + 1);
+    char *query = (char *)request.request_line.search(&request.request_line, "Query", strlen("Query") + 1);
     char *version_major = (char *)request.request_line.search(&request.request_line, "Version_major", strlen("Version_major") + 1);
     char *version_minor = (char *)request.request_line.search(&request.request_line, "Version_minor", strlen("Version_minor") + 1);
 
     ASSERT_TRUE(method, "GET", strlen("GET") + 1, "Testing if method is set to 'GET'");
-    ASSERT_TRUE(uri, "/index.html", strlen("/index.html") + 1, "Testing if uri is set to '/index.html'");
+    ASSERT_TRUE(uri, "/index.php", strlen("/index.php") + 1, "Testing if uri is set to '/index.php'");
+    ASSERT_TRUE(query, "name=string&email=string", strlen("name=string&email=string") + 1, "Testing if query is set to 'name=string&email=string'");
     ASSERT_TRUE(version_major, "1", strlen("1") + 1, "Testing if major version is set to '1'");
     ASSERT_TRUE(version_minor, "1", strlen("1") + 1, "Testing if minor version is set to '1'");
 

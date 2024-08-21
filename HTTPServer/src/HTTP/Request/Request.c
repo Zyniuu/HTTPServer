@@ -94,9 +94,17 @@ struct Dictionary extract_request_line(char *request_line)
     char *http_major_version = str_multi_tok(NULL, &save_ptr, ".");
     char *http_minor_version = str_multi_tok(NULL, &save_ptr, "ð");
 
+    // Split the URI into path and query string (if it exists)
+    char request_uri_copy[strlen(request_uri) + 1];
+    strcpy(request_uri_copy, request_uri);
+    char *uri_path = str_multi_tok(request_uri_copy, &save_ptr, "?");
+    char *query_string = str_multi_tok(NULL, &save_ptr, "ð");
+
     // Insert the parsed components into the dictionary
     dict.insert(&dict, "Method", strlen("Method") + 1, request_method, strlen(request_method) + 1);
-    dict.insert(&dict, "Uri", strlen("Uri") + 1, request_uri, strlen(request_uri) + 1);
+    dict.insert(&dict, "Uri", strlen("Uri") + 1, uri_path, strlen(uri_path) + 1);
+    if (query_string != NULL && strlen(query_string) > 0)
+        dict.insert(&dict, "Query", strlen("Query") + 1, query_string, strlen(query_string) + 1);
     dict.insert(&dict, "Version_major", strlen("Version_major") + 1, http_major_version, strlen(http_major_version) + 1);
     dict.insert(&dict, "Version_minor", strlen("Version_minor") + 1, http_minor_version, strlen(http_minor_version) + 1);
 
